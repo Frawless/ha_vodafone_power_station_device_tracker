@@ -103,6 +103,7 @@ class VodafonePowerStationDeviceScanner(DeviceScanner):
             }
 
             r = s.get(url, headers=headers, timeout=10)
+            _LOGGER.debug(r.content)
             m = re.search("(?<=csrf_token = ')[^']+", r.text)
             csrf = m.group(0)
 
